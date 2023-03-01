@@ -11,6 +11,7 @@
 		4E2FC4A029AF96AB00D07AF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC49F29AF96AB00D07AF7 /* ContentView.swift */; };
 		4E2FC4A229AF96AE00D07AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FC4A129AF96AE00D07AF7 /* Assets.xcassets */; };
 		4E2FC4A529AF96AE00D07AF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FC4A429AF96AE00D07AF7 /* Preview Assets.xcassets */; };
+		B1BB6E8E33111C368646A37D /* Pods_GroupPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96EDDE10CA53288AD7972C25 /* Pods_GroupPlanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,9 @@
 		4E2FC49F29AF96AB00D07AF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4E2FC4A129AF96AE00D07AF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2FC4A429AF96AE00D07AF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		96EDDE10CA53288AD7972C25 /* Pods_GroupPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5C8D53E04AAB2EFCDE6AB64 /* Pods-GroupPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupPlanner.release.xcconfig"; path = "Target Support Files/Pods-GroupPlanner/Pods-GroupPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		E76571AAEAF3C6D491D2145B /* Pods-GroupPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupPlanner.debug.xcconfig"; path = "Target Support Files/Pods-GroupPlanner/Pods-GroupPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +30,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1BB6E8E33111C368646A37D /* Pods_GroupPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0044D33976D160342C1C8018 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96EDDE10CA53288AD7972C25 /* Pods_GroupPlanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E2FC49129AF96AB00D07AF7 = {
 			isa = PBXGroup;
 			children = (
 				4E2FC49C29AF96AB00D07AF7 /* GroupPlanner */,
 				4E2FC49B29AF96AB00D07AF7 /* Products */,
+				6F28E8FEF8856B38B9C3F2A1 /* Pods */,
+				0044D33976D160342C1C8018 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		6F28E8FEF8856B38B9C3F2A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E76571AAEAF3C6D491D2145B /* Pods-GroupPlanner.debug.xcconfig */,
+				B5C8D53E04AAB2EFCDE6AB64 /* Pods-GroupPlanner.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E2FC4A829AF96AE00D07AF7 /* Build configuration list for PBXNativeTarget "GroupPlanner" */;
 			buildPhases = (
+				EB6C4AE866293D2B6A3CDFF7 /* [CP] Check Pods Manifest.lock */,
 				4E2FC49629AF96AB00D07AF7 /* Sources */,
 				4E2FC49729AF96AB00D07AF7 /* Frameworks */,
 				4E2FC49829AF96AB00D07AF7 /* Resources */,
+				90D1B6BBD64E3D7DF9D83A0F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		90D1B6BBD64E3D7DF9D83A0F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GroupPlanner/Pods-GroupPlanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GroupPlanner/Pods-GroupPlanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GroupPlanner/Pods-GroupPlanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB6C4AE866293D2B6A3CDFF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GroupPlanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E2FC49629AF96AB00D07AF7 /* Sources */ = {
@@ -261,6 +330,7 @@
 		};
 		4E2FC4A929AF96AE00D07AF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76571AAEAF3C6D491D2145B /* Pods-GroupPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,6 +360,7 @@
 		};
 		4E2FC4AA29AF96AE00D07AF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C8D53E04AAB2EFCDE6AB64 /* Pods-GroupPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
