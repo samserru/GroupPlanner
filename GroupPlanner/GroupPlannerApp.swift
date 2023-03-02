@@ -21,10 +21,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct GroupPlannerApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+   
+    @StateObject var userInfo: UserInfo = UserInfo()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userInfo)
         }
     }
 }
