@@ -58,6 +58,7 @@ struct ForgotPassword: View {
 struct ForgotPassword_Previews: PreviewProvider {
     static var previews: some View {
         ForgotPassword(viewState: Binding.constant(.forgotPassword))
+            .environmentObject(UserInfo())
     }
 }
 
