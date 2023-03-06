@@ -25,15 +25,8 @@ struct ContentView: View {
         } else if viewState == .forgotPassword && !userInfo.loggedIn{
             ForgotPassword(viewState: $viewState)
         }else{
-            
-            Button{
-                viewState = .authentication
-                userInfo.loggedIn = false
-            } label: {
-                Text("<< back")
-                
-                    .padding(.trailing, 200)
-            }
+            BaseView(viewState: $viewState)
+           
         }
     }
 }

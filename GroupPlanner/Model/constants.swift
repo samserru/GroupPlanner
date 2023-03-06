@@ -7,5 +7,5 @@
 
 import Foundation
 enum ViewState{
-    case login, signUp, authentication, forgotPassword, settings, createSurvey, survery, friends, list, detail
+    case login, signUp, authentication, forgotPassword, settings, createSurvey, survey, friends, list, detail, base
 }
