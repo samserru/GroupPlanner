@@ -21,14 +21,18 @@ struct BaseView: View {
                     Text("Calendar")
                 }
             
+            FriendView()
+                .tabItem{
+                    Image(systemName: "person")
+                    Text("Friends")
+                }
+            
             
             SurveyView()
                 .tabItem{
                     Image(systemName: "circle")
                     Text("Survey")
                 }
-            
-            
             
             
             SettingsView(viewState: $viewState)
