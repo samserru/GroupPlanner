@@ -12,7 +12,7 @@ struct AuthenticationView: View {
     var body: some View {
         ZStack{
           Rectangle()
-                .foregroundColor(.blue.opacity(0.6))
+                .foregroundColor(Color.white)
                 
             VStack {
                Spacer()
@@ -28,21 +28,21 @@ struct AuthenticationView: View {
                     viewState = .signUp
                 } label: {
                     Text("Signup")
-                        
-                        .frame(width: 300, height: 50)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
-                }.padding()
+                        .foregroundColor(Color.white)
+                        .frame(width: 100, height: 50)
+                        .background(Color.highlight)
+                        .cornerRadius(30)
+                }
                
                 Button {
                     viewState = .login
                 } label: {
                     Text("Login")
-                        
-                        .frame(width: 300, height: 50)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
-                }.padding()
+                        .foregroundColor(Color.white)
+                        .frame(width: 100, height: 50)
+                        .background(Color.highlight)
+                        .cornerRadius(30)
+                }
                 Spacer()
                 
             }

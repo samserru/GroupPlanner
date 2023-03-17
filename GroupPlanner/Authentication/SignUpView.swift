@@ -17,10 +17,21 @@ struct SignupView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.blue.opacity(0.6))
+                .foregroundColor(Color.white)
+                .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Spacer()
+                HStack{
+                Button {
+                    viewState = .authentication
+                } label: {
+                    Text("back")
+                        .frame(width: 300, height: 50, alignment: .leading)
+                        .foregroundColor(.highlight)
+//                        .edgesIgnoringSafeArea(.all)
+                }
+                }
+            
                 
                 Image("logo")
                     .resizable()
@@ -30,10 +41,10 @@ struct SignupView: View {
                 Spacer()
                 
                 TextField("user name or email", text: $userInfo.username)
-                    
+                    .foregroundColor(.font)
                     .padding()
                 SecureField("password", text: $userInfo.password)
-                   
+                    .foregroundColor(.font)
                     .padding()
                 
                 Button {
@@ -56,10 +67,10 @@ struct SignupView: View {
                     
                 } label: {
                     Text("Sign up")
-                       
-                        .frame(width: 300, height: 50)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
+                        .foregroundColor(Color.white)
+                        .frame(width: 100, height: 50)
+                        .background(Color.highlight)
+                        .cornerRadius(30)
                 }.padding()
                 Spacer()
                 

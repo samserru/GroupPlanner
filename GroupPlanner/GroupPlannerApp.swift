@@ -23,11 +23,13 @@ struct GroupPlannerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
    
     @StateObject var userInfo: UserInfo = UserInfo()
+    @StateObject var surveyList: SurveyList = SurveyList()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(userInfo)
+                .environmentObject(surveyList)
         }
     }
 }

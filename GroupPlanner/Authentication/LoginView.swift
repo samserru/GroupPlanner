@@ -1,4 +1,4 @@
-//
+
 //  LoginView.swift
 //  GroupPlanner
 //
@@ -16,10 +16,20 @@ struct LoginView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.blue.opacity(0.6))
+                .foregroundColor(Color.white)
+                .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Spacer()
+                HStack{
+                Button {
+                    viewState = .authentication
+                } label: {
+                    Text("back")
+                        .frame(width: 300, height: 50, alignment: .leading)
+                        .foregroundColor(.highlight)
+//                        .edgesIgnoringSafeArea(.all)
+                }
+                }
                 
                 Image("logo")
                     .resizable()
@@ -28,55 +38,48 @@ struct LoginView: View {
                 
                 Spacer()
                 
+                
                 TextField("user name or email", text: $userInfo.username)
-
                     .padding()
+                
                 SecureField("password", text: $userInfo.password)
-                   
                     .padding()
                 
-                Button {
-                    Auth.auth().signIn(withEmail: userInfo.username, password: userInfo.password){
-                        user, error in
-                        if let _ = user{
-                            viewState = .list
-                            userInfo.loggedIn = true
-                        }
-                        else{
-                            print(error?.localizedDescription)
-                        }
-                    }
-                   
-                } label: {
-                    Text("Login")
-                        
-                        .frame(width: 300, height: 50)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
-                }.padding()
                 
-                Button {
-                    viewState = .authentication
-                } label: {
-                    Text("<<back")
-                        
-                        .frame(width: 300, height: 50)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
-                }.padding()
-                Spacer()
+            
                
                 Button {
                     viewState = .forgotPassword
                 } label: {
                     Text("forgot password")
-                        
-                        .frame(width: 300, height: 50)
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(20)
-                }.padding()
-                Spacer()
+                        .foregroundColor(Color.white)
+                        .frame(width: 200, height: 50)
+                        .background(Color.highlight)
+                        .cornerRadius(30)
+                }
                 
+                
+                Button {
+                                    Auth.auth().signIn(withEmail: userInfo.username, password: userInfo.password){
+                                        user, error in
+                                        if let _ = user{
+                                            viewState = .list
+                                            userInfo.loggedIn = true
+                                        }
+                                        else{
+                                            print(error?.localizedDescription)
+                                        }
+                                    }
+                                   
+                                } label: {
+                                    Text("Login")
+                                        .foregroundColor(Color.white)
+                                        .frame(width: 200, height: 50)
+                                        .background(Color.highlight)
+                                        .cornerRadius(30)
+                                }
+                Spacer()
+
             }
         }.edgesIgnoringSafeArea(.all)
     }

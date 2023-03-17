@@ -28,7 +28,7 @@ struct BaseView: View {
                 }
             
             
-            SurveyView()
+            CreateSurveyView()
                 .tabItem{
                     Image(systemName: "circle")
                     Text("Survey")
