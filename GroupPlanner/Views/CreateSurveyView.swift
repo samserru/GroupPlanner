@@ -9,9 +9,8 @@ import SwiftUI
 
 struct CreateSurveyView: View {
     @EnvironmentObject var surveyList: SurveyList
-    @State var survey: Survey = Survey()
-    @State private var date = Date()
-    @State private var currentDate = Date()
+    @StateObject var survey: Survey = Survey()
+//    @State private var approvedDates = []
     @State var image1: String = "minus.square"
     @State var image2: String = "minus.square"
     @State var image3: String = "minus.square"
@@ -19,75 +18,75 @@ struct CreateSurveyView: View {
     var body: some View {
         ZStack{
             
-            TextField("Survey name", text: $survey.name)
-                .padding()
+            
             
             VStack{
-                List{
-                    
-                    
-                    ForEach(survey.activities.indices){ a in
+                //List{
+                TextField("Survey name", text: $survey.name)
+                    .padding()
+                    List($survey.activities){ $a in
+                        
                         ScrollView{
                             HStack{
-                                TextField("Activity Name", text: $survey.activities[a].name)
+                                TextField("Activity Name", text: $a.name)
                                 
                                 
-                                Button{
-                                    if  survey.activities[a].activityLike==false{
-                                        survey.activities[a].activityLike=true
-                                        survey.activities[a].totalActivityLikes += 1
-                                        image1 = "checkmark.square.fill"
-                                    }
-                                    
-                                    else{
-                                        image1 = "minus.square"
-                                        survey.activities[a].activityLike = false
-                                        survey.activities[a].totalActivityLikes -= 1
-                                    }
-                                } label: {
-                                    
-                                    Image(systemName: image1)
-                                    
-                                }
-                                Text("\(survey.activities[a].totalActivityLikes)")
-                                    .padding()
+//                                Button{
+//                                    if  survey.activities[a].activityLike==false{
+//                                        survey.activities[a].activityLike=true
+//                                        survey.activities[a].totalActivityLikes += 1
+//                                        image1 = "checkmark.square.fill"
+//                                    }
+//
+//                                    else{
+//                                        image1 = "minus.square"
+//                                        survey.activities[a].activityLike = false
+//                                        survey.activities[a].totalActivityLikes -= 1
+//                                    }
+//                                } label: {
+//
+//                                    Image(systemName: image1)
+//
+//                                }
+//                                Text("\(survey.activities[a].totalActivityLikes)")
+//                                    .padding()
                             }
                             
                         }
-                        HStack{
-                            VStack{
-                                Button{
-                                    if survey.activities[a].datesList[a].dateLike==false{
-                                        survey.activities[a].datesList[a].dateLike=true
-                                        survey.activities[a].datesList[a].dateLikes += 1
-                                        image2 = "checkmark.square.fill"
-                                    }
-                                    else{
-                                        survey.activities[a].datesList[a].dateLikes -= 1
-                                        survey.activities[a].datesList[a].dateLike=false
-                                        image2 = "minus.square"
-                                    }
-                                } label: {
-                                    VStack{
-                                        HStack{
-                                            TextField("Date", text: $survey.activities[a].datesList[a].date)
-                                            
-                                            Spacer()
-                                            Image(systemName: image2)
-                                            
-                                        }
-                                    }
-                                }
-                            }
-                            
-                        
-                        Text("\(survey.activities[a].datesList[a].dateLikes)")
-                            .padding()
-                    }
+//                        HStack{
+//                            VStack{
+//                                Button{
+//                                    if survey.activities[a].datesList[a].dateLike==false{
+//                                        survey.activities[a].datesList[a].dateLike=true
+//                                        survey.activities[a].datesList[a].dateLikes += 1
+//                                        image2 = "checkmark.square.fill"
+//                                    }
+//                                    else{
+//                                        survey.activities[a].datesList[a].dateLikes -= 1
+//                                        survey.activities[a].datesList[a].dateLike=false
+//                                        image2 = "minus.square"
+//                                    }
+//                                } label: {
+//                                    VStack{
+//                                        HStack{
+//                                            TextField("Date", text: $survey.activities[a].datesList[a].date)
+//
+//                                            Spacer()
+//                                            Image(systemName: image2)
+//
+//                                        }
+//                                    }
+//                                }
+//                            }
+//
+//
+//                        Text("\(survey.activities[a].datesList[a].dateLikes)")
+//                            .padding()
+//                    }
                     
                     DatePicker(
                         "Date",
-                        selection: $date,
+                        selection: $a.date,
                         displayedComponents: [.date]
                     )
                     //                    Button{
@@ -100,51 +99,63 @@ struct CreateSurveyView: View {
                     //                        }
                     //                    }
                     
-                    HStack{
-                        Button{
-                            if survey.activities[a].timesList[a].timeLike==false{
-                                survey.activities[a].timesList[a].timeLike=true
-                                survey.activities[a].timesList[a].timeLikes += 1
-                                image3 = "checkmark.square.fill"
-                            }
-                            else{
-                                survey.activities[a].timesList[a].timeLikes -= 1
-                                survey.activities[a].timesList[a].timeLike=false
-                                image3 = "minus.square"
-                            }
-                            
-                        } label: {
-                            HStack{
-                                TextField("Time", text: $survey.activities[a].timesList[a].time)
-                                Spacer()
-                                Image(systemName: image3)
-                                
-                            }
-                        }
-                        Text("\(survey.activities[a].timesList[a].timeLikes)")
-                            .padding()
-                    }
+//                    HStack{
+//                        Button{
+//                            if survey.activities[a].timesList[a].timeLike==false{
+//                                survey.activities[a].timesList[a].timeLike=true
+//                                survey.activities[a].timesList[a].timeLikes += 1
+//                                image3 = "checkmark.square.fill"
+//                            }
+//                            else{
+//                                survey.activities[a].timesList[a].timeLikes -= 1
+//                                survey.activities[a].timesList[a].timeLike=false
+//                                image3 = "minus.square"
+//                            }
+//
+//                        } label: {
+//                            HStack{
+//                                TextField("Time", text: $survey.activities[a].timesList[a].time)
+//                                Spacer()
+//                                Image(systemName: image3)
+//
+//                            }
+//                        }
+//                        Text("\(survey.activities[a].timesList[a].timeLikes)")
+//                            .padding()
+//                    }
+        // better date picker
+//                        Button{
+//                            approvedDates.append("03/24/2023")
+//                            approvedDates.append("03/25/2023")
+//                            approvedDates.append("03/26/2023")
+//                        } label: {
+//                            Text("Pick approved list of dates")
+//
+//                        }
                         
-                               VStack {
-                                   DatePicker("Time", selection: $currentDate, displayedComponents: .hourAndMinute)
+                        HStack{
+                            Text("Time")
+                            Spacer()
+                            DatePicker("Time", selection: $a.date, displayedComponents: .hourAndMinute)
                                    .labelsHidden()
-                               }
-                           
+                               
+                        }
 //                    Button{
 //                        //add time
 //                    } label: {
 //                        Image(systemName: "clock")
 //                    }
                     
-                    Button{
-                        survey.activities.append(Activities())
-                    } label: {
-                        Text("Add Activity")
-                        Image(systemName: "plus")
-                    }
+//                    Button{
+//                        survey.activities.append(Activities())
+//                        print(survey.activities.count)
+//                    } label: {
+////                        Text("Add Activity")
+//                        Image(systemName: "plus")
+//                    }
                     
                 }
-            }
+           // }
             
             
             
@@ -152,6 +163,14 @@ struct CreateSurveyView: View {
         }
         VStack{
             Spacer()
+            Button{
+                survey.activities.append(Activities())
+                print(survey.activities.count)
+            } label: {
+//                        Text("Add Activity")
+                Image(systemName: "plus")
+            }
+//            Spacer()
             Button{
                 //                        $surveyList.append($survey)
             } label: {

@@ -18,10 +18,10 @@ class ViewController: UIViewController {
 
         // Set up approved dates
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        approvedDates.append(formatter.date(from: "2023/03/24")!)
-        approvedDates.append(formatter.date(from: "2023/03/25")!)
-        approvedDates.append(formatter.date(from: "2023/03/26")!)
+        formatter.dateFormat = "MM/dd/yyyy"
+//        approvedDates.append(formatter.date(from: "2023/03/24")!)
+//        approvedDates.append(formatter.date(from: "2023/03/25")!)
+//        approvedDates.append(formatter.date(from: "2023/03/26")!)
 
         // Set up date picker
         let datePicker = UIDatePicker()
