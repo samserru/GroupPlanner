@@ -7,27 +7,30 @@
 
 import Foundation
 
-class times: ObservableObject, Identifiable{
-    @Published var time: String = ""
+
+class timesList: ObservableObject, Identifiable{
+    @Published var date: Date = Date()
     @Published var timeLikes: Int = 0
     @Published var timeLike: Bool = false
     @Published var id: UUID = UUID()
     
-    init(time: String = "", timesLikes: Int = 0, timeLike: Bool = false){
-        self.time = time
-        self.timeLikes = timeLikes
-        self.timeLike = timeLike
-    }
-}
+    init(date: Date, timeLikes: Int = 0, timeLike: Bool = false) {
+         self.date = date
+         self.timeLikes = timeLikes
+         self.timeLike = timeLike
+     }
+ }
 
 class dates: ObservableObject, Identifiable{
-    @Published var date: String = ""
+    @Published var date: Date = Date()
+    @Published var timesList: [timesList] = []
     @Published var dateLikes: Int = 0
     @Published var dateLike: Bool = false
     @Published var id: UUID = UUID()
     
-    init(date: String = "", dateLikes: Int = 0, dateLike: Bool = false){
+    init(date: Date = Date(), timesList: [timesList] = [], dateLikes: Int = 0, dateLike: Bool = false){
         self.date = date
+        self.timesList = timesList
         self.dateLikes = dateLikes
         self.dateLike = dateLike
     }

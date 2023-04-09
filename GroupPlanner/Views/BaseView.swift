@@ -15,17 +15,17 @@ struct BaseView: View {
         TabView{
             
             
-            CalendarView()
-                .tabItem{
-                    Image(systemName: "calendar")
-                    Text("Calendar")
-                }
+           CalendarView()
+               .tabItem{
+                   Image(systemName: "calendar")
+                   Text("Calendar")
+              }
             
-            FriendView()
-                .tabItem{
-                    Image(systemName: "person")
-                    Text("Friends")
-                }
+//            FriendView()
+//                .tabItem{
+//                    Image(systemName: "person")
+//                    Text("Friends")
+//                }
             
             
             CreateSurveyView()
@@ -46,6 +46,9 @@ struct BaseView: View {
     struct BaseView_Previews: PreviewProvider {
         static var previews: some View {
             BaseView(viewState: Binding.constant(.base))
-                     }
+                .environmentObject(UserInfo())
+                .environmentObject(DataManager())
+                .environmentObject(SurveyList())
+        }
                      }
 

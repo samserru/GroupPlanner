@@ -16,20 +16,10 @@ struct LoginView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(Color.white)
-                .edgesIgnoringSafeArea(.all)
+                .foregroundColor(.blue.opacity(0.6))
             
             VStack {
-                HStack{
-                Button {
-                    viewState = .authentication
-                } label: {
-                    Text("back")
-                        .frame(width: 300, height: 50, alignment: .leading)
-                        .foregroundColor(.highlight)
-//                        .edgesIgnoringSafeArea(.all)
-                }
-                }
+                Spacer()
                 
                 Image("logo")
                     .resizable()
@@ -38,48 +28,55 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                
-                TextField("user name or email", text: $userInfo.username)
+                TextField("email", text: $userInfo.username)
+
                     .padding()
-                
                 SecureField("password", text: $userInfo.password)
+                   
                     .padding()
                 
+                Button {
+                    Auth.auth().signIn(withEmail: userInfo.username, password: userInfo.password){
+                        user, error in
+                        if let _ = user{
+                            viewState = .list
+                            userInfo.loggedIn = true
+                        }
+                        else{
+                            print(error?.localizedDescription)
+                        }
+                    }
+                   
+                } label: {
+                    Text("Login")
+                        
+                        .frame(width: 300, height: 50)
+                        .background(Color.white.opacity(0.8))
+                        .cornerRadius(20)
+                }.padding()
                 
-            
+                Button {
+                    viewState = .authentication
+                } label: {
+                    Text("<<back")
+                        
+                        .frame(width: 300, height: 50)
+                        .background(Color.white.opacity(0.8))
+                        .cornerRadius(20)
+                }.padding()
+                Spacer()
                
                 Button {
                     viewState = .forgotPassword
                 } label: {
                     Text("forgot password")
-                        .foregroundColor(Color.white)
-                        .frame(width: 200, height: 50)
-                        .background(Color.highlight)
-                        .cornerRadius(30)
-                }
-                
-                
-                Button {
-                                    Auth.auth().signIn(withEmail: userInfo.username, password: userInfo.password){
-                                        user, error in
-                                        if let _ = user{
-                                            viewState = .list
-                                            userInfo.loggedIn = true
-                                        }
-                                        else{
-                                            print(error?.localizedDescription)
-                                        }
-                                    }
-                                   
-                                } label: {
-                                    Text("Login")
-                                        .foregroundColor(Color.white)
-                                        .frame(width: 200, height: 50)
-                                        .background(Color.highlight)
-                                        .cornerRadius(30)
-                                }
+                        
+                        .frame(width: 300, height: 50)
+                        .background(Color.white.opacity(0.8))
+                        .cornerRadius(20)
+                }.padding()
                 Spacer()
-
+                
             }
         }.edgesIgnoringSafeArea(.all)
     }

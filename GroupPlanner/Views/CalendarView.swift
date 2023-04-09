@@ -1,20 +1,22 @@
-//
-//  CalendarView.swift
-//  GroupPlanner
-//
-//  Created by Samuel Serruya (student LM) on 3/6/23.
-//
-
 import SwiftUI
 
 struct CalendarView: View {
+    @EnvironmentObject var surveyList: SurveyList
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(surveyList.surveyList) { s in
+                NavigationLink(destination: SurveyDetailView(survey: Binding.constant(s))) {
+                    Text(s.name)
+                }
+            }
+            .navigationTitle("Surveys")
+        }
     }
 }
 
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView()
+        CalendarView().environmentObject(SurveyList())
     }
 }

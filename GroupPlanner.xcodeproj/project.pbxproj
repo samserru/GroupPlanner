@@ -23,6 +23,12 @@
 		4E2FC4C129B61D8A00D07AF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC4C029B61D8A00D07AF7 /* SettingsView.swift */; };
 		4E2FC4C529B61DBB00D07AF7 /* CreateSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC4C429B61DBB00D07AF7 /* CreateSurveyView.swift */; };
 		4E2FC4C729B6220C00D07AF7 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC4C629B6220C00D07AF7 /* FriendView.swift */; };
+		4E35D6AA29D1D3DD00CD29D8 /* addSurveyFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E35D6A929D1D3DD00CD29D8 /* addSurveyFriends.swift */; };
+		4E35D6AC29D1D43600CD29D8 /* addFriendsSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E35D6AB29D1D43600CD29D8 /* addFriendsSurvey.swift */; };
+		4E35D6AE29D1D5B400CD29D8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E35D6AD29D1D5B400CD29D8 /* ImagePicker.swift */; };
+		4E35D6B029D1D78E00CD29D8 /* myFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E35D6AF29D1D78D00CD29D8 /* myFriends.swift */; };
+		4E5C0B8E29E32932006B1FB1 /* SurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C0B8D29E32932006B1FB1 /* SurveyDetailView.swift */; };
+		4E78D8DD29D123E400455CB0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E78D8DC29D123E400455CB0 /* DataManager.swift */; };
 		6A48FD8129CC72E900710D9C /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A48FD8029CC72E900710D9C /* DatePicker.swift */; };
 		6AB0D72C29BF45D700CCBB9E /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0D72B29BF45D700CCBB9E /* Survey.swift */; };
 		6AFA51C329C2068300BFE2A2 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFA51C229C2068300BFE2A2 /* Time.swift */; };
@@ -49,6 +55,12 @@
 		4E2FC4C029B61D8A00D07AF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4E2FC4C429B61DBB00D07AF7 /* CreateSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyView.swift; sourceTree = "<group>"; };
 		4E2FC4C629B6220C00D07AF7 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		4E35D6A929D1D3DD00CD29D8 /* addSurveyFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSurveyFriends.swift; sourceTree = "<group>"; };
+		4E35D6AB29D1D43600CD29D8 /* addFriendsSurvey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFriendsSurvey.swift; sourceTree = "<group>"; };
+		4E35D6AD29D1D5B400CD29D8 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		4E35D6AF29D1D78D00CD29D8 /* myFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myFriends.swift; sourceTree = "<group>"; };
+		4E5C0B8D29E32932006B1FB1 /* SurveyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailView.swift; sourceTree = "<group>"; };
+		4E78D8DC29D123E400455CB0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		6A48FD8029CC72E900710D9C /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		6AB0D72B29BF45D700CCBB9E /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		6AFA51C229C2068300BFE2A2 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -140,6 +152,10 @@
 				6AFA51C429C206CD00BFE2A2 /* Activities.swift */,
 				6AFA51C629C2085400BFE2A2 /* SurveyList.swift */,
 				6A48FD8029CC72E900710D9C /* DatePicker.swift */,
+				4E78D8DC29D123E400455CB0 /* DataManager.swift */,
+				4E35D6AD29D1D5B400CD29D8 /* ImagePicker.swift */,
+				4E35D6AF29D1D78D00CD29D8 /* myFriends.swift */,
+				4E35D6A929D1D3DD00CD29D8 /* addSurveyFriends.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +169,8 @@
 				4E2FC4C029B61D8A00D07AF7 /* SettingsView.swift */,
 				4E2FC4C429B61DBB00D07AF7 /* CreateSurveyView.swift */,
 				4E2FC4C629B6220C00D07AF7 /* FriendView.swift */,
+				4E35D6AB29D1D43600CD29D8 /* addFriendsSurvey.swift */,
+				4E5C0B8D29E32932006B1FB1 /* SurveyDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,18 +301,24 @@
 			files = (
 				6AFA51C529C206CD00BFE2A2 /* Activities.swift in Sources */,
 				4E2FC4BF29B61D7B00D07AF7 /* CalendarView.swift in Sources */,
+				4E35D6AC29D1D43600CD29D8 /* addFriendsSurvey.swift in Sources */,
 				4E2FC4B729B0F87400D07AF7 /* LoginView.swift in Sources */,
 				4E2FC4A029AF96AB00D07AF7 /* ContentView.swift in Sources */,
+				4E5C0B8E29E32932006B1FB1 /* SurveyDetailView.swift in Sources */,
 				4E2FC4B529B0F81C00D07AF7 /* SignUpView.swift in Sources */,
 				4E2FC4BB29B0FA1100D07AF7 /* ForgotPassword.swift in Sources */,
+				4E35D6AE29D1D5B400CD29D8 /* ImagePicker.swift in Sources */,
 				4E2FC4B929B0F8A300D07AF7 /* constants.swift in Sources */,
 				4E2FC4C729B6220C00D07AF7 /* FriendView.swift in Sources */,
 				6AFA51C729C2085400BFE2A2 /* SurveyList.swift in Sources */,
 				4E2FC4AE29B0F57800D07AF7 /* UserInfo.swift in Sources */,
 				4E2FC4BD29B61C1C00D07AF7 /* BaseView.swift in Sources */,
 				6AB0D72C29BF45D700CCBB9E /* Survey.swift in Sources */,
+				4E35D6B029D1D78E00CD29D8 /* myFriends.swift in Sources */,
 				4E2FC4C529B61DBB00D07AF7 /* CreateSurveyView.swift in Sources */,
 				4E2FC4B329B0F65800D07AF7 /* AuthenticationView.swift in Sources */,
+				4E78D8DD29D123E400455CB0 /* DataManager.swift in Sources */,
+				4E35D6AA29D1D3DD00CD29D8 /* addSurveyFriends.swift in Sources */,
 				6AFA51C329C2068300BFE2A2 /* Time.swift in Sources */,
 				4E2FC49E29AF96AB00D07AF7 /* GroupPlannerApp.swift in Sources */,
 				4E2FC4C129B61D8A00D07AF7 /* SettingsView.swift in Sources */,
