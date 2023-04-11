@@ -6,7 +6,7 @@ import FirebaseFirestore
 
 
 
-class DataManager: ObservableObject{
+class DataManager: ObservableObject, Identifiable{
 
     @Published var userInfos: [UserInfo] = []
 
@@ -60,11 +60,13 @@ class DataManager: ObservableObject{
 
                     let loggedIn = data["loggedIn"] as? Bool ?? false
 
-                //    let survey = data["survey"] as? Survey ?? Survey()
+                    let friends = data["friends"] as? [String] ?? []
+
+                    //    let survey = data["survey"] as? Survey ?? Survey()
 
                     
 
-                    let userinfo = UserInfo(username: username, password: password, realName: realName, loggedIn: loggedIn, id: id)
+                    let userinfo = UserInfo(username: username, password: password, realName: realName, loggedIn: loggedIn, id: id, friends: friends)
 
                     //survey: survey
 
@@ -90,7 +92,7 @@ class DataManager: ObservableObject{
 
         //, "survey": Survey()
 
-        ref.setData(["realName": real, "id": "\(Int.random(in: 1..<1000))", "username": "", "password": "", "loggedIn": false]){ error in
+        ref.setData(["realName": real, "id": "\(Int.random(in: 1..<10000))", "username": "", "password": "", "loggedIn": false], merge: true){ error in
 
             if let error = error{
 
@@ -104,24 +106,119 @@ class DataManager: ObservableObject{
 
     
 
-//    func addUserSurvey(s: Survey, r: String){
+    func addFriends(real: String, n: String){
 
-//        let db = Firestore.firestore()
+        let db = Firestore.firestore()
 
-//        let ref = db.collection("UserInfo").document(r)
+        let ref = db.collection("UserInfo").document(real).collection("friends").document(n)
 
-//        ref.setData(["realName": r, "id": "\(Int.random(in: 1..<1000))", "username": "", "password": "", "loggedIn": false, "survey": s]){ error in
+        ref.setData(["name": n], merge: true){ error in
 
-//            if let error = error{
+            if let error = error{
 
-//                print(error.localizedDescription)
+                print(error.localizedDescription)
 
-//            }
+            }
 
-//        }
+        }
 
-//    }
+        
+
+    }
 
     
 
-}
+    func addUserSurvey(real: String, s: String){
+
+        let db = Firestore.firestore()
+
+        
+
+        let ref = db
+
+            .collection("UserInfo")
+
+            .document(real)
+
+            .collection("survey")
+
+            .document(s)
+
+        ref.setData(["name": s], merge: true){ error in
+
+            if let error = error{
+
+                print(error.localizedDescription)
+
+            }
+
+        }
+
+    }
+
+
+
+
+
+    func addActivity(s: String, real: String, act: Activities){
+
+        let db = Firestore.firestore()
+
+        let ref = db.collection("UserInfo").document(real).collection("survey").document(s).collection("activities").document(act.name)
+
+        ref.setData(["name": act.name, "description":act.description, "activityLike":act.activityLike, "totalActivityLikes":act.totalActivityLikes, "date":act.date]){ error in
+
+            if let error = error{
+
+                print(error.localizedDescription)
+
+            }
+
+        }
+
+    }
+
+
+
+    func addDate(s: String, real: String, act: Activities, d: dates){
+
+        let db = Firestore.firestore()
+
+        let ref = db.collection("UserInfo").document(real).collection("survey").document(s).collection("activities").document(act.name).collection("dateList").document("\(d.rand)")
+
+        ref.setData(["date":d.date, "dateLikes": d.dateLikes,"dateLike":d.dateLike,"rand":d.rand]){ error in
+
+            if let error = error{
+
+                print(error.localizedDescription)
+
+            }
+
+        }
+
+                     }
+
+
+
+    func addTime(s: String, real: String, act: Activities, d:dates, t: timesList){
+
+            let db = Firestore.firestore()
+
+        let ref = db.collection("UserInfo").document(real).collection("survey").document(s).collection("activities").document(act.name).collection("dateList").document("\(d.rand)").collection("timesList").document("\(t.rand)")
+
+        ref.setData(["date":t.date,"timeLikes":t.timeLikes,"timeLike":t.timeLike, "rand":t.rand]){ error in
+
+                if let error = error{
+
+                    print(error.localizedDescription)
+
+                }
+
+            }
+
+                         }
+
+                         
+
+                         }
+

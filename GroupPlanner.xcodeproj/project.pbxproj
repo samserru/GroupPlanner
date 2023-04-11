@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1BF07429E463A0008B5F45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E1BF07329E463A0008B5F45 /* GoogleService-Info.plist */; };
 		4E2FC49E29AF96AB00D07AF7 /* GroupPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC49D29AF96AB00D07AF7 /* GroupPlannerApp.swift */; };
 		4E2FC4A029AF96AB00D07AF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC49F29AF96AB00D07AF7 /* ContentView.swift */; };
 		4E2FC4A229AF96AE00D07AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FC4A129AF96AE00D07AF7 /* Assets.xcassets */; };
 		4E2FC4A529AF96AE00D07AF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FC4A429AF96AE00D07AF7 /* Preview Assets.xcassets */; };
-		4E2FC4AC29B0F26800D07AF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E2FC4AB29B0F26800D07AF7 /* GoogleService-Info.plist */; };
 		4E2FC4AE29B0F57800D07AF7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC4AD29B0F57800D07AF7 /* UserInfo.swift */; };
 		4E2FC4B329B0F65800D07AF7 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC4B229B0F65800D07AF7 /* AuthenticationView.swift */; };
 		4E2FC4B529B0F81C00D07AF7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2FC4B429B0F81C00D07AF7 /* SignUpView.swift */; };
@@ -38,12 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E1BF07329E463A0008B5F45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E2FC49A29AF96AB00D07AF7 /* GroupPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2FC49D29AF96AB00D07AF7 /* GroupPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPlannerApp.swift; sourceTree = "<group>"; };
 		4E2FC49F29AF96AB00D07AF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4E2FC4A129AF96AE00D07AF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2FC4A429AF96AE00D07AF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4E2FC4AB29B0F26800D07AF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E2FC4AD29B0F57800D07AF7 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		4E2FC4B229B0F65800D07AF7 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		4E2FC4B429B0F81C00D07AF7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				4E2FC4B029B0F5A800D07AF7 /* Model */,
 				4E2FC4A329AF96AE00D07AF7 /* Preview Content */,
 				4E2FC49D29AF96AB00D07AF7 /* GroupPlannerApp.swift */,
-				4E2FC4AB29B0F26800D07AF7 /* GoogleService-Info.plist */,
+				4E1BF07329E463A0008B5F45 /* GoogleService-Info.plist */,
 				4E2FC4A129AF96AE00D07AF7 /* Assets.xcassets */,
 			);
 			path = GroupPlanner;
@@ -245,8 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2FC4A529AF96AE00D07AF7 /* Preview Assets.xcassets in Resources */,
+				4E1BF07429E463A0008B5F45 /* GoogleService-Info.plist in Resources */,
 				4E2FC4A229AF96AE00D07AF7 /* Assets.xcassets in Resources */,
-				4E2FC4AC29B0F26800D07AF7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GroupPlanner/Preview Content\"";
@@ -465,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SerruyaCapital.GroupPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = "final-335ff";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -479,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GroupPlanner/Preview Content\"";
@@ -495,7 +497,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SerruyaCapital.GroupPlanner;
+				PRODUCT_BUNDLE_IDENTIFIER = "final-335ff";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

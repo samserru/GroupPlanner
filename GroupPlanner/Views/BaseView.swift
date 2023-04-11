@@ -21,11 +21,11 @@ struct BaseView: View {
                    Text("Calendar")
               }
             
-//            FriendView()
-//                .tabItem{
-//                    Image(systemName: "person")
-//                    Text("Friends")
-//                }
+           FriendView()
+               .tabItem{
+                    Image(systemName: "person")
+                    Text("Friends")
+               }
             
             
             CreateSurveyView()
@@ -35,12 +35,12 @@ struct BaseView: View {
                 }
             
             
-            SettingsView(viewState: $viewState)
-                .tabItem{
-                    Image(systemName: "gear")
-                    Text("settings")
+           // SettingsView(viewState: $viewState)
+               // .tabItem{
+                //    Image(systemName: "gear")
+                  //  Text("settings")
                 }
-        }
+       // }
     }
 }
     struct BaseView_Previews: PreviewProvider {
