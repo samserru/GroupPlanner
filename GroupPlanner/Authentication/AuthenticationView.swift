@@ -27,21 +27,26 @@ struct AuthenticationView: View {
                 Button {
                     viewState = .signUp
                 } label: {
-                    Text("Signup")
+                    Text("Sign Up")
+                        .fontWeight(.semibold)
                         .foregroundColor(Color.white)
-                        .frame(width: 100, height: 50)
+    
+                        .frame(width: 150, height: 50)
                         .background(Color.highlight)
                         .cornerRadius(30)
+                        .padding()
                 }
                
                 Button {
                     viewState = .login
                 } label: {
                     Text("Login")
+                        .fontWeight(.semibold)
                         .foregroundColor(Color.white)
-                        .frame(width: 100, height: 50)
+                        .frame(width: 150, height: 50)
                         .background(Color.highlight)
                         .cornerRadius(30)
+                        
                 }
                 Spacer()
                 

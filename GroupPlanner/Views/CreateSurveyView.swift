@@ -9,39 +9,16 @@ struct CreateSurveyView: View {
     @EnvironmentObject var surveyList: SurveyList
 
     @State var survey: Survey = Survey()
-
     @State var date = Date()
-
     @State var currentDate = Date()
-
-    @State var image1: String = "minus.square"
-
-    @State var image2: String = "minus.square"
-
-    @State var image3: String = "minus.square"
-
-    
-
     @State var activities: [Activities] = [Activities()]
-
     @State var surveyName = ""
-
-    
-
-    
-
-    
-
     @EnvironmentObject var datamanager: DataManager
-
     @State private var searchText = ""
-
     @State var addFriends: [String] = []
 
-    // @Binding var myFriends: [String]
 
     
-
     @EnvironmentObject var addsurveryfriends: addSurveyFriends
 
     
@@ -66,79 +43,52 @@ struct CreateSurveyView: View {
 
                         Section(header: Text("Activity")) {
 
-                            TextField("Activity Name", text: $activity.name)
+                            HStack{
+                                                      TextField("Activity Name", text: $activity.name)
+                                                      Button(action: {
+                                                          let newDate = dates(timesList: [timesList()])
+                                                          activity.datesList.append(newDate)
+                                                      }, label: {
+                                                          Text("Add Date")
+                                                              .font(constants.buttonFont)
+                                                          Image(systemName: "calendar.badge.plus")
+                                                      })
+                                                  }
+                                                  TextField("Location", text: $activity.description)
+                                                  
+                                                  
 
                             
 
                             ForEach($activity.datesList) { $date in
+                                                       HStack{
+                                                           DatePicker(
+                                                               "Date",
+                                                               selection: $date.date,
+                                                               displayedComponents: [.date]
+                                                           )
+                                                           
+                                                           
+                                                           Button(action: {
+                                                               date.timesList.append(timesList())
+                                                               print(date.timesList.count)
+                                                           }, label: {
+                                                               Text("Add Time")
+                                                                   .font(constants.buttonFont)
+                                                               Image(systemName: "clock")
+                                                           })
+                                                       }
+                                                       ForEach($date.timesList) { $time in
+                                                           
+                                                           DatePicker(
+                                                               "— Time",
+                                                               selection: $time.date,
+                                                               displayedComponents: [.hourAndMinute]
+                                                           )
+                                                       }
 
-                                DatePicker(
-
-                                    "Date",
-
-                                    selection: $date.date,
-
-                                    displayedComponents: [.date]
-
-                                )
-
-                                DatePicker(
-
-                                    "Time",
-
-                                    selection: $date.date,
-
-                                    displayedComponents: [.hourAndMinute]
-
-                                )
-
-                                
-
-                                ForEach($date.timesList) { $time in
-
-                                    
-
-                                    DatePicker(
-
-                                        "Time",
-
-                                        selection: $time.date,
-
-                                        displayedComponents: .hourAndMinute
-
-                                    )
-
-                                    
-
-                                }
-
-                                
-
-                                Button(action: {
-
-                                    date.timesList.append(timesList())
-
-                                }, label: {
-
-                                    Text("Add another time")
-
-                                })
-
-                                
 
                             }
-
-                            
-
-                            Button(action: {
-
-                                activity.datesList.append(dates())
-
-                            }, label: {
-
-                                Text("Add another date")
-
-                            })
 
                         }
 

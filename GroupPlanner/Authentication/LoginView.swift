@@ -18,60 +18,106 @@ struct LoginView: View {
 
         ZStack{
 
-            Rectangle()
-
-                .foregroundColor(.blue.opacity(0.6))
-
-            
-
             VStack {
 
+                Button {
+
+                    viewState = .authentication
+
+                } label: {
+
+                    Text("<<back")
+
+                    
+                        .foregroundColor(.black)
+                    
+                        .multilineTextAlignment(.leading)
+                        .padding(.trailing, 40.0)
+                    
+                        .frame(width: 100, height: 50)
+                    
+                      
+                    
+                    
+                }.padding()
                 Spacer()
 
                 
 
                 Image("logo")
-
+                
                     .resizable()
-
+                
                     .frame(width: 215, height: 200)
-
+                
                     .clipShape(Circle())
-
+                
                     .overlay(Circle().stroke(Color.highlight, lineWidth: 5))
-
-                    .shadow(color: Color.white, radius: 10)
-
+                
+                    .shadow(color: Color.white, radius: 1)
+                
                     .padding(25)
-
-
-
-                
-
+               
                 Spacer()
-
                 
-
-                TextField("email", text: $userInfo.username)
-
-
-
+                
+                
+                
+                
+                
+                TextField("user name or email", text: $userInfo.username)
+                
+                    .font(.headline)
+                
+                    .foregroundColor(.font)
+                
                     .padding()
-
+                
+                    .frame(width: 300, height: 50)
+                
+                    .background(Color.gray.opacity(0.1))
+                
+                    .cornerRadius(15.0)
+                
+                
+                
+                
                 SecureField("password", text: $userInfo.password)
-
-                   
-
-                    .padding()
-
                 
-
+                    .font(.headline)
+                
+                    .foregroundColor(.font)
+                
+                    .padding()
+                
+                    .frame(width: 300, height: 50)
+                
+                    .background(Color.gray.opacity(0.1))
+                
+                    .cornerRadius(15.0)
+                
+                    .padding()
+                
+                
+                
                 TextField("username", text: $userInfo.realName)
-
+                
+                    .font(.headline)
+                
+                    .foregroundColor(.font)
+                
                     .padding()
-
+                
+                    .frame(width: 300, height: 50)
+                
+                    .background(Color.gray.opacity(0.1))
+                
+                    .cornerRadius(15.0)
                 
 
+                
+                Spacer()
+                
                 Button {
 
                     Auth.auth().signIn(withEmail: userInfo.username, password: userInfo.password){
@@ -96,41 +142,29 @@ struct LoginView: View {
 
                    
 
-                } label: {
+                }
+               
+            
+            label: {
 
                     Text("Login")
-
-                        
-
-                        .frame(width: 300, height: 50)
-
-                        .background(Color.white.opacity(0.8))
-
-                        .cornerRadius(20)
+                    
+                    
+                        .foregroundColor(Color.white)
+                    
+                        .frame(width: 200, height: 50)
+                    
+                        .background(Color.highlight)
+                    
+                        .cornerRadius(15)
+                    
 
                 }.padding()
 
                 
 
-                Button {
+              
 
-                    viewState = .authentication
-
-                } label: {
-
-                    Text("<<back")
-
-                        
-
-                        .frame(width: 300, height: 50)
-
-                        .background(Color.white.opacity(0.8))
-
-                        .cornerRadius(20)
-
-                }.padding()
-
-                Spacer()
 
                
 
@@ -143,7 +177,8 @@ struct LoginView: View {
                     Text("forgot password")
 
                         
-
+                        .foregroundColor(Color.black)
+                    
                         .frame(width: 300, height: 50)
 
                         .background(Color.white.opacity(0.8))
@@ -152,7 +187,7 @@ struct LoginView: View {
 
                 }.padding()
 
-                //Spacer()
+             
 
                 
 

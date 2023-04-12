@@ -9,8 +9,9 @@ import Foundation
 import SwiftUI
 
 struct constants{
-    static let buttonFont : Font = Font(UIFont(name: "HelveticaNeue-Thin", size: 16) ?? UIFont.systemFont(ofSize: 16))
+    static let buttonFont : Font = Font(UIFont(name: "HelveticaNeue-Thin", size: 10) ?? UIFont.systemFont(ofSize: 10))
     static let textFont: Font = Font(UIFont(name: "HelveticaNeue-Thin", size: 20) ?? UIFont.systemFont(ofSize: 20))
+
 }
 
 extension Color{
