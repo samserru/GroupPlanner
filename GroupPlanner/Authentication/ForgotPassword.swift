@@ -19,17 +19,8 @@ struct ForgotPassword: View {
                 .foregroundColor(Color.white)
             
             VStack {
-                HStack{
-                Button {
-                    viewState = .authentication
-                } label: {
-                    Text("back")
-                        .frame(width: 300, height: 50, alignment: .leading)
-                        .foregroundColor(.highlight)
-//                        .edgesIgnoringSafeArea(.all)
-                }
-                }
                 
+                Spacer()
                 Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -52,6 +43,15 @@ struct ForgotPassword: View {
                     
                 } label: {
                     Text("Reset password")
+                        .foregroundColor(Color.white)
+                        .frame(width: 200, height: 50)
+                        .background(Color.highlight)
+                        .cornerRadius(30)
+                }.padding()
+                Button {
+                    viewState = .authentication
+                } label: {
+                    Text("back")
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 50)
                         .background(Color.highlight)

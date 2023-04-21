@@ -13,61 +13,96 @@ class Survey: ObservableObject, Identifiable{
     @Published var activities: [Activities]
     @Published var id: UUID = UUID()
     @Published var user: UserInfo = UserInfo()
-    @Published var mostPopularActivity: Activities? = nil {
-          didSet {
-              if let activity = mostPopularActivity {
-                  let content = UNMutableNotificationContent()
-                  content.title = "Most Popular Activity"
-                  content.body = "\(activity.name) is now the most popular activity."
-                  content.sound = UNNotificationSound.default
+    @Published var date: Date = Date()
+    @Published var isExpired: Bool = false
 
-                  // Trigger the notification to be shown in 5 seconds
-                  let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+    var dateString: String {
 
-                  // Create a request to show the notification
-                  let request = UNNotificationRequest(identifier: "MostPopularActivityNotification", content: content, trigger: trigger)
+       let formatter = DateFormatter()
 
-                  // Add the request to the notification center
-                  UNUserNotificationCenter.current().add(request) { error in
-                      if let error = error {
-                          print("Error sending notification: \(error.localizedDescription)")
-                      }
-                  }
-              }
-          }
-      }
+       formatter.dateFormat = "EEEE, dd 'of' MMMM 'at' HH:mm"
+
+       return formatter.string(from: date)
+
+   }
+
     
-    init(name: String = "", activities: [Activities] = [Activities()]){
+    init(name: String = "", activities: [Activities] = [Activities()],date: Date = Date()){
         self.name = name
         self.activities = activities
+        self.date = date
     }
     
     
-func findMostPopularActivity() -> (activity: Activities, date: dates, time: timesList)? {
-    // Find the activity with the most likes
-    guard let mostLikedActivity = activities.max(by: { $0.totalActivityLikes < $1.totalActivityLikes }) else {
-        // Return nil if there are no activities in the survey
-        return nil
+    func mostLikedActivity() -> Activities {
+        var mostLiked: Activities = Activities(name: "No votes", description: "Sorry, no activities were liked was chosen", activityLike: true, totalActivityLikes: 1, date: Date())
+        for activity in activities {
+            if activity.totalActivityLikes >= mostLiked.totalActivityLikes {
+                mostLiked = activity
+            }
+        }
+        return mostLiked
     }
-    
-    // Find the date and time with the most likes for the most popular activity
-    guard let mostLikedDate = mostLikedActivity.datesList.max(by: { $0.dateLikes < $1.dateLikes }),
-          let mostLikedTime = mostLikedDate.timesList.max(by: { $0.timeLikes < $1.timeLikes }) else {
-        // Return nil if there are no dates or times associated with the most popular activity
-        return nil
-    }
-    
-    // Return a tuple containing the most popular activity, date, and time
-    return (activity: mostLikedActivity, date: mostLikedDate, time: mostLikedTime)
-}
-    func updateMostPopularActivity() {
-           // Determine the most popular activity
-           if let mostLikedActivity = activities.max(by: { $0.totalActivityLikes < $1.totalActivityLikes }) {
-               mostPopularActivity = mostLikedActivity
-           } else {
-               mostPopularActivity = nil
-           }
-       }
 
+    
+    
+    
+    
+    
+    func scheduleExpirationNotification(timeIntervals: Double) {
+        // Create a notification content
+        let content = UNMutableNotificationContent()
+        content.title = "Survey Expired"
+        content.body = "The survey \(name) has expired."
+        content.sound = UNNotificationSound.default
+        
+        // Calculate the time interval between now and the expiration date
+//        let now = Date()
+//        let diffComponents = Calendar.current.dateComponents([.day, .hour, .minute], from: now, to: date)
+//        let days = Double(diffComponents.day!)*86400.0
+//        let hours = Double(diffComponents.hour!)*3600.0
+//        let minutes = Double(diffComponents.minute!)*60.0
+//        let timeInterval = days+hours+minutes
+     
+        // Schedule the notification to be shown when the survey expires
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeIntervals, repeats: false)
+           let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)
+      
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                // Set the survey name to the first activity in the survey when it expires
+                DispatchQueue.main.asyncAfter(deadline: .now() + timeIntervals) {
+                               
+                    print("\(self.date)")
+                    
+                    
+                    self.isExpired = true
+                   
+                               print("Survey \(self.id) expired, name changed to \(self.name)")
+                
+                }
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+    func checkIfExpired() -> Bool{
+        let now = Date()
+        if now > self.date {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    
 }
+
 

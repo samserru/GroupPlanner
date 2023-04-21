@@ -10,9 +10,9 @@ import SwiftUI
 import Foundation
 
 class myFriends: ObservableObject, Identifiable{
-    @Published var myFriends: [String]
+    @Published var myFriends: String
     
-    init(myFriends: [String] = []){
+    init(myFriends: String = ""){
         self.myFriends = myFriends
     }
 }

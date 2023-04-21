@@ -26,9 +26,9 @@ class UserInfo: ObservableObject, Identifiable{
 
     @Published var friends: [String]
 
-   // @Published var image: UIImage = UIImage(named: "default")!
+    @Published var image: UIImage = UIImage(named: "default")!
 
- //  @Published var imageURL: String
+   @Published var imageURL: String
 
 
 
@@ -56,49 +56,48 @@ class UserInfo: ObservableObject, Identifiable{
 
         
 
-//        self.imageURL = ""
-//
-//
-//
-//        Auth.auth().addStateDidChangeListener { _, user in
-//
-//            guard let user = user else {return}
-//
-//
-//
-//            self.username = user.email ?? ""
-//
-//            self.loggedIn = true
-//
-//        }
-//
-//
-//
-//        var dictionary: [String: Any]{
-//
-//            ["image": imageURL]
-//
-//        }
-//
-//
-//
-//        guard let uid = Auth.auth().currentUser?.uid else {return}
-//
-//
-//
-//        Database.database().reference().child("users/\(uid)").observeSingleEvent(of: .value)
-//
-//        { snapshot in
-//
-//            let dictionary = snapshot.value as? [String: AnyObject] ?? [:]
-//
-//
-//
+        self.imageURL = ""
+
+
+
+        Auth.auth().addStateDidChangeListener { _, user in
+
+            guard let user = user else {return}
+
+
+
+            self.username = user.email ?? ""
+
+
+        }
+
+
+
+        var dictionary: [String: Any]{
+
+            ["image": imageURL]
+
+        }
+
+
+
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+
+
+
+        Database.database().reference().child("users/\(uid)").observeSingleEvent(of: .value)
+
+        { snapshot in
+
+            let dictionary = snapshot.value as? [String: AnyObject] ?? [:]
+
+
+
 //            self.imageURL = dictionary["image"] as? String ?? self.imageURL
 //
 //
 //
-//            Storage.storage().reference(forURL: self.imageURL).getData(maxSize: 1*2048*2048) { data, error in
+//           Storage.storage().reference(forURL: self.imageURL).getData(maxSize: 1*2048*2048) { data, error in
 //
 //                if let data = data{
 //
@@ -111,9 +110,10 @@ class UserInfo: ObservableObject, Identifiable{
 //                }
 //
 //            }
-//
-//        }
 
-    }
+        }
 
+    
+
+}
 }

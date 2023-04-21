@@ -20,26 +20,26 @@ struct LoginView: View {
 
             VStack {
 
-                Button {
-
-                    viewState = .authentication
-
-                } label: {
-
-                    Text("<<back")
-
-                    
-                        .foregroundColor(.black)
-                    
-                        .multilineTextAlignment(.leading)
-                        .padding(.trailing, 40.0)
-                    
-                        .frame(width: 100, height: 50)
-                    
-                      
-                    
-                    
-                }.padding()
+//                Button {
+//
+//                    viewState = .authentication
+//
+//                } label: {
+//
+//                    Text("<<back")
+//
+//
+//                        .foregroundColor(.black)
+//
+//                        .multilineTextAlignment(.leading)
+//                        .padding(.trailing, 40.0)
+//
+//                        .frame(width: 100, height: 50)
+//
+//
+//
+//
+//                }.padding()
                 Spacer()
 
                 
@@ -121,19 +121,13 @@ struct LoginView: View {
                 Button {
 
                     Auth.auth().signIn(withEmail: userInfo.username, password: userInfo.password){
-
                         user, error in
 
                         if let _ = user{
-
                             viewState = .list
-
                             userInfo.loggedIn = true
-
                         }
-
                         else{
-
                             print(error?.localizedDescription)
 
                         }
@@ -160,13 +154,26 @@ struct LoginView: View {
                     
 
                 }.padding()
-
+                
                 
 
-              
+                Button{
+                    viewState = .authentication
+                }label: {
 
-
-               
+                    Text("Back")
+                    
+                    
+                        .foregroundColor(Color.white)
+                    
+                        .frame(width: 200, height: 50)
+                    
+                        .background(Color.highlight)
+                    
+                        .cornerRadius(15)
+                    
+                
+                }.padding()
 
                 Button {
 
@@ -187,7 +194,7 @@ struct LoginView: View {
 
                 }.padding()
 
-             
+              
 
                 
 

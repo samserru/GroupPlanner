@@ -94,13 +94,14 @@ struct FriendView: View {
 
                 List{
 
-                    ForEach(r2, id: \.self) { user2 in
+                    ForEach(datamanager.friends) { user2 in
 
                         HStack{
 
-                            Text(user2)
+                            Text(user2.myFriends)
 
                         }
+
 
                     }
 
@@ -109,6 +110,10 @@ struct FriendView: View {
                 .searchable(text: $searchText2)
 
                 .navigationTitle("My Friends")
+                
+                .onAppear(){
+                    self.datamanager.fetchFriends(real: userInfo.realName)
+                }
 
             }
 
@@ -130,21 +135,21 @@ struct FriendView: View {
 
             }
 
-            var r2: [String] {
-
-               // let n = myfriends.myFriends.map{ $0}
-
-                let n = userInfo.friends.map{ $0}
-
-                
-
-                return searchText2 == "" ? n : n.filter{
-
-                    $0.contains(searchText2)
-
-                }
-
-            }
+//            var r2: [String] {
+//
+//               // let n = myfriends.myFriends.map{ $0}
+//
+//                let n = datamanager.friends.map{ $0}
+//
+//
+//
+//                return searchText2 == "" ? n : n.filter{
+//
+//                    $0.contains(searchText2)
+//
+//                }
+//
+//            }
 
         }
 
@@ -165,8 +170,6 @@ struct FriendView: View {
             }
 
         }
-
-
 
 
 

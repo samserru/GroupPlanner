@@ -3,15 +3,12 @@ import Foundation
 
 
 class timesList: ObservableObject, Identifiable{
-
+   
+    @Published var id: UUID = UUID()
     @Published var date: Date = Date()
-
     @Published var timeLikes: Int = 0
-
     @Published var timeLike: Bool = false
-
     @Published var rand: Int = Int.random(in: 1..<10000)
-
     
 
     init(date: Date = Date(), timesLikes: Int = 0, timeLike: Bool = false){
@@ -30,6 +27,8 @@ class timesList: ObservableObject, Identifiable{
 
 class dates: ObservableObject, Identifiable{
 
+    @Published var id: UUID = UUID()
+    
     @Published var date: Date = Date()
 
     @Published var dateLikes: Int = 0
