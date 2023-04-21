@@ -23,8 +23,18 @@ struct SettingsView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 200, height: 200, alignment: .center)
                 .clipShape(Circle())
+                .padding()
 
             Spacer()
+            
+            Text(userInfo.username)
+                .font(constants.textFont)
+                .padding()
+            Text(userInfo.realName)
+                .padding(.bottom, 376)
+                .font(constants.textFont)
+            
+            
             Button{
                 showSheet.toggle()
             }
@@ -34,12 +44,14 @@ struct SettingsView: View {
 
 
             Button{
+                
                 try! Auth.auth().signOut()
                 userInfo.loggedIn = false
                 viewState = .authentication
             }
         label: {
             Text("Sign out")
+                .padding(.bottom, 100)
         }.sheet(isPresented: $showSheet){
             guard let uid = Auth.auth().currentUser?.uid else {return}
 

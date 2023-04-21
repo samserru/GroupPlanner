@@ -4,7 +4,7 @@ import SwiftUI
 
 struct CalendarView: View {
     
-   
+    
     @EnvironmentObject var datamanager: DataManager
     @EnvironmentObject var userInfo: UserInfo
     
@@ -21,133 +21,74 @@ struct CalendarView: View {
     
     
     var body: some View {
-        
-        //        NavigationView {
-        
-        //            List(surveyList.surveyList) { s in
-        
-        //                NavigationLink(destination: SurveyDetailView(survey: Binding.constant(s))) {
-        
-        //                    Text(s.name)
-        
-        //                }
-        
-        //            }
-        
-        //        }
-        
-        //            .navigationTitle("Surveys")
-        
-        //        }
-        
         ZStack{
-            
-            NavigationView{
+            VStack{
+                Text("Surveys")
+                    .bold()
+                    .font(.title)
                 
-                List{
+                NavigationView{
                     
-                    ForEach(datamanager.surveys){ s in
-                        
-                        if(s.checkIfExpired()){
-                     
-                        NavigationLink(destination: SurveyWinnerView(survey: Binding.constant(s))) {
-                           
-                                ZStack{
-                                HStack{
-                                Text("EXPIRED: \(s.name)")
-                                Text(s.dateString)
-                                Text(s.mostLikedActivity().name)
-                               
-                                }}
-                           
-                            
-                            
-                        }
-                        }
-                            else{
+                    List{
+                        Section(header: Text("Pending").padding()) {
+                            ForEach(datamanager.surveys){ s in
                                 
-                                NavigationLink(destination: SurveyDetailView(survey: Binding.constant(s))) {
-                                   
+                                if(s.checkIfExpired()==false){
+                                    NavigationLink(destination: SurveyDetailView(survey: Binding.constant(s))) {
+                                        
+                                        
                                         ZStack{
-                                        HStack{
-                                        Text("\(s.name)")
-                                        Text(s.dateString)
-                            
-                                       
-                                        }}
-                                   
-                                    
-                                    
+                                            HStack{
+                                                Text("\(s.name)")
+                                                    .padding()
+                                                Text(s.dateString)
+                                                
+                                                
+                                            }}
+                                        
+                                        
+                                    }
                                 }
                             }
                         }
                         
                         
-                        
-                        //                        .onAppear(){
-                        
-                        //                            self.datamanager.fetchSurvey(real: s.name)
-                        
-                        //  }
-                        
-                        
-                        
-                        
-                        
-                        //                .onAppear(){
-                        
-                        //                    datamanager.surveys.forEach { datamanager.fetchSurvey(real: $0.name) }
-                        
-                        //             //   }
-                        
-                        ////
-                        
-                        ////            }
-                        
+                        Section(header: Text("Expired Surveys").padding()) {
+                            ForEach(datamanager.surveys){ s in
+                                
+                                if(s.checkIfExpired()){
+                                    
+                                    NavigationLink(destination: SurveyWinnerView(survey: Binding.constant(s))) {
+                                        ZStack{
+                                            HStack{
+                                                Text("\(s.name)")
+                                                    .padding()
+                                                Text(s.dateString)
+                                             
+                                            }}
+                                    }
+                                }
+                            }
+                        }
                     }
-                    
-                    
-                    
-                    
-                    
                 }
-                
                 .onAppear(){
-                    
                     self.datamanager.fetchSurvey(real: x)
-                    
                 }
-                
-              
-                
             }
-            
-            .navigationTitle("Surveys")
-            
-            
-            
         }
-        
+        .navigationTitle("Surveys")
     }
-    
-
-
+}
 
 
 struct CalendarView_Previews: PreviewProvider {
-    
     static var previews: some View {
-        
         CalendarView(x: Binding.constant(""))
-        
             .environmentObject(SurveyList())
-        
             .environmentObject(DataManager())
-        
             .environmentObject(UserInfo())
-        
     }
-    
 }
 
 

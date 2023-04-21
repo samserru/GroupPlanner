@@ -33,16 +33,7 @@ class Survey: ObservableObject, Identifiable{
         self.date = date
     }
     
-    
-    func mostLikedActivity() -> Activities {
-        var mostLiked: Activities = Activities(name: "No votes", description: "Sorry, no activities were liked was chosen", activityLike: true, totalActivityLikes: 1, date: Date())
-        for activity in activities {
-            if activity.totalActivityLikes >= mostLiked.totalActivityLikes {
-                mostLiked = activity
-            }
-        }
-        return mostLiked
-    }
+
 
     
     

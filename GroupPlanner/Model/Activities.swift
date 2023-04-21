@@ -10,7 +10,6 @@ class Activities: ObservableObject, Identifiable{
 
     @Published var description: String = ""
 
-  //  @Published var datesList: [dates] = []
 
     @Published var date: Date
 
@@ -36,7 +35,7 @@ class Activities: ObservableObject, Identifiable{
 
         self.name = name
 
-       // self.datesList = datesList
+        self.description = description
 
         self.date = date
 
@@ -46,7 +45,25 @@ class Activities: ObservableObject, Identifiable{
 
     }
 
+
+
+
+    func vote() {
+        if(self.activityLike == false){
+        self.totalActivityLikes+=1
+        }
+        else{
+            self.totalActivityLikes+=1
+        }
+    }
+
+
+
+
 }
+
+
+
 
 
 

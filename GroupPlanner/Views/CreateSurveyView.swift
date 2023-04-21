@@ -53,7 +53,7 @@ struct CreateSurveyView: View {
                                                      self.showDatePicker.toggle()
                                                  }) {
                                                      HStack {
-                                                         Text("Experation Date")
+                                                         Text("Expiration Date")
                                                              .font(.footnote)
                                                              
                                                           

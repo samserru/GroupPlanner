@@ -17,47 +17,64 @@ struct SurveyWinnerView: View {
     var body: some View {
 
         ZStack{
+            Rectangle()
+                            .foregroundColor(Color.highlight)
+                            .edgesIgnoringSafeArea(.all)
             VStack{
                 Text("")
                 Spacer()
-            Text(survey.mostLikedActivity().name)
+            Text(datamanager.mostLikedActivity().name)
                     .padding()
+                    .font(.title)
+                    .foregroundColor(Color.white)
 
-            Text(survey.mostLikedActivity().description)
+            Text(datamanager.mostLikedActivity().description)
                     .padding()
+                    .font(.title)
+                    .foregroundColor(Color.white)
 
-            Text(survey.mostLikedActivity().dateString)
-                    .padding()
 
-            Text("\(survey.mostLikedActivity().totalActivityLikes)")
+
+            Text(datamanager.mostLikedActivity().dateString)
                     .padding()
+                    .font(.title)
+                    .foregroundColor(Color.white)
+
+
+
+            Text("\(datamanager.mostLikedActivity().totalActivityLikes)")
+                    .padding()
+                    .font(.title)
+                    .foregroundColor(Color.white)
+
+
             Spacer()
                 Text("")
 
-                ForEach(datamanager.activities) { activity in
-                
-
-                        if(activity.totalActivityLikes < survey.mostLikedActivity().totalActivityLikes){
-
-
-                        VStack{
-                            HStack{
-                            Text(activity.name)
-
-                                .padding()
-                                
-                                Text("\(activity.totalActivityLikes)")
-                            }
-                            HStack{
-                                Text("")
-                                Spacer()
-                                Text("")
-                            }
-                            }
-                        
-                        }
-
-                    }
+//                ForEach(datamanager.activities) { activity in
+//
+//
+//                        if(activity.totalActivityLikes < survey.mostLikedActivity().totalActivityLikes){
+//
+//
+//                        VStack{
+//                            HStack{
+//                            Text(activity.name)
+//
+//                                .padding()
+//
+//                                Text("\(activity.totalActivityLikes)")
+//                            }
+//                            HStack{
+//                                Text("")
+//                                Spacer()
+//                                Text("")
+//                            }
+//                            }
+//
+//                        }
+//
+//                    }
                 }
 
             .navigationTitle(survey.name)
@@ -66,9 +83,10 @@ struct SurveyWinnerView: View {
             .onAppear(){
                 self.datamanager.fetchActivities(real: userInfo.realName, s: survey.name)
             }
-        }.background(
-            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-              .edgesIgnoringSafeArea(.all))
+        }
+        //.background(
+            //LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .top, endPoint: .bottom)
+             // .edgesIgnoringSafeArea(.all))
         }
         }
 

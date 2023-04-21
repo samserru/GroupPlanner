@@ -11,8 +11,10 @@ struct SurveyDetailView: View {
     @EnvironmentObject var datamanager: DataManager
 
     @EnvironmentObject var userInfo: UserInfo
+    
+    
 
-    //@State var act: Activities
+  
 
     var body: some View {
 
@@ -24,34 +26,37 @@ struct SurveyDetailView: View {
 
                     Section(header: Text(activity.name)) {
 
-                        VStack{
+                        HStack{
 
                             Text(activity.dateString)
+                            Text(activity.description)
 
                                 .padding()
                             Button{
                                               if activity.activityLike == false {
                                                   activity.activityLike = true
                                                   activity.totalActivityLikes += 1
+                                                  
                                               }
                                               else{
                                                   activity.activityLike = false
                                                   activity.totalActivityLikes -= 1
                                               }
                                 
-                                datamanager.addActivity(s: userInfo.realName, real: survey.name, act: activity)
-                                       
+
                             
                             } label: {
-                                              if activity.activityLike == false {
+
+                            
+                                if activity.activityLike == false {
                                                   Image(systemName: "rectangle")
                                               }
                                               else{
                                                   Image(systemName: "checkmark.rectangle.fill")
                                               }
                                           }
-                            
-                            
+                            Text("\(activity.totalActivityLikes)")
+                         
 
                             }
                         }
