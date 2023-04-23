@@ -25,7 +25,7 @@ struct SurveyDetailView: View {
                 ForEach(datamanager.activities) { activity in
                     
                     Section(header: Text(activity.name)
-                        .foregroundColor(Color.white)) {
+                        .foregroundColor(Color.black)) {
                         
                         HStack{
                             
