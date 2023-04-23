@@ -44,7 +44,7 @@ struct CreateSurveyView: View {
                 
                 
                 
-                TextField("Survey name", text: $surveyName)
+                TextField("Poll name", text: $surveyName)
                 
                     .padding()
                 
@@ -308,7 +308,7 @@ struct CreateSurveyView: View {
                         
                         
                         
-                        Text("Send Survey")
+                        Text("Send Poll")
                         
                         
                         

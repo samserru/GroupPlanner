@@ -23,14 +23,19 @@ struct CalendarView: View {
     var body: some View {
         ZStack{
             VStack{
-                Text("Surveys")
+                Text("Polls")
                     .bold()
                     .font(.title)
-                
+                    .foregroundColor(Color.highlight)
                 NavigationView{
                     
                     List{
-                        Section(header: Text("Pending").padding()) {
+                        Section(header: Text("Pending")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            
+                            .foregroundColor(Color.highlight)
+                            .padding()) {
                             ForEach(datamanager.surveys){ s in
                                 
                                 if(s.checkIfExpired()==false){
@@ -53,7 +58,12 @@ struct CalendarView: View {
                         }
                         
                         
-                        Section(header: Text("Expired Surveys").padding()) {
+                        Section(header: Text("Expired Polls")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            
+                            .foregroundColor(Color.highlight)
+                            .padding()) {
                             ForEach(datamanager.surveys){ s in
                                 
                                 if(s.checkIfExpired()){
@@ -63,8 +73,8 @@ struct CalendarView: View {
                                             HStack{
                                                 Text("\(s.name)")
                                                     .padding()
-                                                Text(s.dateString)
-                                             
+                                                
+                                                
                                             }}
                                     }
                                 }

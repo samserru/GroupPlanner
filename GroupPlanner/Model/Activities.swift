@@ -17,7 +17,10 @@ class Activities: ObservableObject, Identifiable{
 
         let formatter = DateFormatter()
 
-        formatter.dateFormat = "EEEE, dd 'of' MMMM 'at' HH:mm"
+        formatter.dateFormat =   "EEEE, dd 'of' MMMM 'at' HH:mm"
+         //'at' HH:mm"
+         
+         
 
         return formatter.string(from: date)
 

@@ -79,6 +79,7 @@ struct FriendView: View {
                 .searchable(text: $searchText)
 
                 .navigationTitle("Find Friends")
+                
 
                 
 
@@ -110,6 +111,8 @@ struct FriendView: View {
                 .searchable(text: $searchText2)
 
                 .navigationTitle("My Friends")
+              
+
                 
                 .onAppear(){
                     self.datamanager.fetchFriends(real: userInfo.realName)

@@ -49,8 +49,9 @@ struct BaseView: View {
                 .tabItem{
 
                     Image(systemName: "circle")
+                        
 
-                    Text("Survey")
+                    Text("Poll")
 
                 }
 
@@ -63,12 +64,13 @@ struct BaseView: View {
                 .tabItem{
 
                     Image(systemName: "gear")
+                    
 
-                    Text("settings")
+                    Text("Settings")
 
                 }
 
-        }
+        } .accentColor(.highlight)
 
     }
 

@@ -18,24 +18,29 @@ struct SurveyWinnerView: View {
 
         ZStack{
             Rectangle()
-                            .foregroundColor(Color.highlight)
+                            .foregroundColor(Color.green)
                             .edgesIgnoringSafeArea(.all)
             VStack{
                 Text("")
                 Spacer()
             Text(datamanager.mostLikedActivity().name)
+                    .fontWeight(.heavy)
                     .padding()
                     .font(.title)
                     .foregroundColor(Color.white)
 
-            Text(datamanager.mostLikedActivity().description)
+                Text(datamanager.mostLikedActivity().description)
+                    .fontWeight(.heavy)
                     .padding()
                     .font(.title)
+                    
                     .foregroundColor(Color.white)
 
 
 
             Text(datamanager.mostLikedActivity().dateString)
+                    .fontWeight(.heavy)
+
                     .padding()
                     .font(.title)
                     .foregroundColor(Color.white)
@@ -43,6 +48,7 @@ struct SurveyWinnerView: View {
 
 
             Text("\(datamanager.mostLikedActivity().totalActivityLikes)")
+                    .fontWeight(.heavy)
                     .padding()
                     .font(.title)
                     .foregroundColor(Color.white)

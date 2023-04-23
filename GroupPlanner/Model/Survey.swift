@@ -20,7 +20,7 @@ class Survey: ObservableObject, Identifiable{
 
        let formatter = DateFormatter()
 
-       formatter.dateFormat = "EEEE, dd 'of' MMMM 'at' HH:mm"
+       formatter.dateFormat = "MMMM dd, EEEE"
 
        return formatter.string(from: date)
 

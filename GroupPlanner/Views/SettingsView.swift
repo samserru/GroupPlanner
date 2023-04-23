@@ -18,28 +18,30 @@ struct SettingsView: View {
 
     var body: some View {
         VStack{
+           
             Image(uiImage: userInfo.image)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 200, alignment: .center)
                 .clipShape(Circle())
                 .padding()
 
-            Spacer()
+           
             
             Text(userInfo.username)
                 .font(constants.textFont)
                 .padding()
             Text(userInfo.realName)
-                .padding(.bottom, 376)
+                .padding()
                 .font(constants.textFont)
-            
+            Spacer()
             
             Button{
                 showSheet.toggle()
             }
         label: {
             Text("Change Image")
+                .foregroundColor(Color.green)
         }.padding()
 
 
@@ -51,6 +53,7 @@ struct SettingsView: View {
             }
         label: {
             Text("Sign out")
+                .foregroundColor(Color.green)
                 .padding(.bottom, 100)
         }.sheet(isPresented: $showSheet){
             guard let uid = Auth.auth().currentUser?.uid else {return}
