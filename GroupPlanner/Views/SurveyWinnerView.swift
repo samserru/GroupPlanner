@@ -23,13 +23,13 @@ struct SurveyWinnerView: View {
             VStack{
                 Text("")
                 Spacer()
-            Text(datamanager.mostLikedActivity().name)
+            Text("Activity name:  \(datamanager.mostLikedActivity().name)")
                     .fontWeight(.heavy)
                     .padding()
                     .font(.title)
                     .foregroundColor(Color.white)
 
-                Text(datamanager.mostLikedActivity().description)
+                Text("Description: \(datamanager.mostLikedActivity().description)")
                     .fontWeight(.heavy)
                     .padding()
                     .font(.title)
@@ -47,7 +47,7 @@ struct SurveyWinnerView: View {
 
 
 
-            Text("\(datamanager.mostLikedActivity().totalActivityLikes)")
+            Text("Votes : \(datamanager.mostLikedActivity().totalActivityLikes)")
                     .fontWeight(.heavy)
                     .padding()
                     .font(.title)
